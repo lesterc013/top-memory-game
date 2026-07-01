@@ -4,6 +4,25 @@ import Card from './Card';
 const API_ENDPOINT = 'https://rickandmortyapi.com/api/character';
 const NUM_CARDS = 12;
 
+function shuffleArray(array) {
+  let currentIndex = array.length;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+    // Pick a remaining element...
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element - destructuring
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
+
 export default function PlayingField() {
   const [cardData, setCardData] = useState([]);
 
@@ -32,7 +51,9 @@ export default function PlayingField() {
     }
 
     // Only set state when all fetch results resolve.
-    Promise.all(promises).then(() => setCardData(cardDataPlaceholder));
+    Promise.all(promises).then(() => {
+      setCardData(shuffleArray([...cardDataPlaceholder]));
+    });
 
     // Clean up function using master switch to abort all fetch requests at once.
     return () => {
