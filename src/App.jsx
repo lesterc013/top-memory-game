@@ -1,4 +1,5 @@
 import './App.css';
+import Card from './components/Card';
 
 function App() {
   return (
@@ -12,18 +13,18 @@ function App() {
       </div>
 
       <div className='playing-field'>
-        <div className='card'>Card</div>
-        <div className='card'>Card</div>
-        <div className='card'>Card</div>
-        <div className='card'>Card</div>
-        <div className='card'>Card</div>
-        <div className='card'>Card</div>
-        <div className='card'>Card</div>
-        <div className='card'>Card</div>
-        <div className='card'>Card</div>
-        <div className='card'>Card</div>
-        <div className='card'>Card</div>
-        <div className='card'>Card</div>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </div>
     </div>
   );
