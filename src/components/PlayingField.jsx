@@ -4,7 +4,7 @@ import Card from './Card';
 const API_ENDPOINT = 'https://rickandmortyapi.com/api/character';
 const NUM_CARDS = 12;
 
-export default function PlayingField() {
+export default function PlayingField({ checkScoringLogic }) {
   const [cardData, setCardData] = useState([]);
 
   // Initialise the 12 cardData objects.
@@ -54,10 +54,12 @@ export default function PlayingField() {
     <div className='playing-field'>
       {cardData.map((c) => (
         <Card
-          key={c.image}
+          key={c.id}
+          cardId={c.id}
           src={c.image}
           name={c.name}
           reshuffleCards={reshuffleCards}
+          checkScoringLogic={checkScoringLogic}
         />
       ))}
     </div>
