@@ -45,18 +45,9 @@ export default function PlayingField() {
 
   return (
     <div className='playing-field'>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {cardData.map((c) => (
+        <Card key={c.image} src={c.image} name={c.name} />
+      ))}
     </div>
   );
 }
