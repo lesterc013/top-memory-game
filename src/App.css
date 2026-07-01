@@ -7,9 +7,3 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
-/* TODO: Shift to specific <component>.css file when ready */
-.header {
-  display: flex;
-  justify-content: space-between;
-}
