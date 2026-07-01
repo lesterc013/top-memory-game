@@ -1,3 +1,5 @@
+import '../styles/Header.css';
+
 export default function Header({ bestScore, currentScore }) {
   return (
     <div className='header'>
