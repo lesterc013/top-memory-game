@@ -1,5 +1,5 @@
 import './App.css';
-import Card from './components/Card';
+import PlayingField from './components/PlayingField';
 
 function App() {
   return (
@@ -12,20 +12,7 @@ function App() {
         </div>
       </div>
 
-      <div className='playing-field'>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <PlayingField />
     </div>
   );
 }
