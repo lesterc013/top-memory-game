@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import PlayingField from './components/PlayingField';
+import Header from './components/Header';
 
 function App() {
   const [idsClicked, setIdsClicked] = useState(new Set());
@@ -22,13 +23,7 @@ function App() {
 
   return (
     <div className='app-container'>
-      <div className='header'>
-        <div className='title'>Title</div>
-        <div className='score-container'>
-          <div className='best-score'>Best Score</div>
-          <div className='current-score'>Current Score</div>
-        </div>
-      </div>
+      <Header bestScore={bestScore} currentScore={currentScore} />
 
       <PlayingField checkScoringLogic={checkScoringLogic} />
     </div>
