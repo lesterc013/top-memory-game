@@ -1,13 +1,11 @@
 import testImg from '../assets/twm-headshot.jpg';
+import '../styles/Card.css';
 
 export default function Card() {
-  // div card
-  // img
-  // name
   return (
     <div className='card'>
       <img src={testImg} alt='card image' />
-      <span>Tan Wei Min</span>
+      <div className='card-name'>Tan Wei Min</div>
     </div>
   );
 }
