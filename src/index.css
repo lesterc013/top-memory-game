@@ -21,6 +21,10 @@
   font-size: 62.5%;
 }
 
+#root {
+  height: 100%;
+}
+
 body {
   /* 4. Increase line-height */
   line-height: 1.5;
