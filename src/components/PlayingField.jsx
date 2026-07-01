@@ -4,25 +4,6 @@ import Card from './Card';
 const API_ENDPOINT = 'https://rickandmortyapi.com/api/character';
 const NUM_CARDS = 12;
 
-function shuffleArray(array) {
-  let currentIndex = array.length;
-
-  // While there remain elements to shuffle...
-  while (currentIndex != 0) {
-    // Pick a remaining element...
-    let randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element - destructuring
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-}
-
 export default function PlayingField() {
   const [cardData, setCardData] = useState([]);
 
@@ -64,11 +45,40 @@ export default function PlayingField() {
     };
   }, []);
 
+  // Send as prop to Card to attach to onClick.
+  function reshuffleCards() {
+    setCardData(shuffleArray([...cardData]));
+  }
+
   return (
     <div className='playing-field'>
       {cardData.map((c) => (
-        <Card key={c.image} src={c.image} name={c.name} />
+        <Card
+          key={c.image}
+          src={c.image}
+          name={c.name}
+          reshuffleCards={reshuffleCards}
+        />
       ))}
     </div>
   );
+}
+
+function shuffleArray(array) {
+  let currentIndex = array.length;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+    // Pick a remaining element...
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element - destructuring
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
 }
