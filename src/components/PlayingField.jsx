@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
+import '../styles/PlayingField.css';
 
 const API_ENDPOINT = 'https://rickandmortyapi.com/api/character';
 const NUM_CARDS = 12;
