@@ -23,10 +23,6 @@
   font-size: 62.5%;
 }
 
-#root {
-  height: 100%;
-}
-
 @font-face {
   font-family: 'RickAndMorty';
   src: url('./assets/WubbaLubbaDubDub.ttf') format('truetype');
