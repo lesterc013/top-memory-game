@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
-  color: #0eb7ca;
+  color: var(--rick-and-morty-blue);
   -webkit-text-stroke-width: 0.1px;
   -webkit-text-stroke-color: black;
   font-weight: 900;
