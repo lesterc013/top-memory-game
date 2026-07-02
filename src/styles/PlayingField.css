@@ -10,7 +10,7 @@
   .playing-field {
     display: grid;
     grid-template-columns: repeat(4, minmax(100px, 250px));
-    grid-template-rows: repeat(3, minmax(100px, 250px));
+    grid-template-rows: repeat(3, minmax(100px, 1fr));
     gap: 2rem;
     padding: 1rem;
   }
