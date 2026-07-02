@@ -3,7 +3,7 @@ import Card from './Card';
 import '../styles/PlayingField.css';
 
 const API_ENDPOINT = 'https://rickandmortyapi.com/api/character';
-const NUM_CARDS = 16;
+const NUM_CARDS = 12;
 
 export default function PlayingField({ checkScoringLogic }) {
   const [cardData, setCardData] = useState([]);
