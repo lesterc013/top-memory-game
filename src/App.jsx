@@ -25,7 +25,9 @@ function App() {
     <div className='app-container'>
       <Header bestScore={bestScore} currentScore={currentScore} />
 
-      <PlayingField checkScoringLogic={checkScoringLogic} />
+      <div className='playing-field-wrapper'>
+        <PlayingField checkScoringLogic={checkScoringLogic} />
+      </div>
     </div>
   );
 }

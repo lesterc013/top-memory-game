@@ -4,3 +4,8 @@
   flex-direction: column;
   background-color: antiquewhite;
 }
+
+.playing-field-wrapper {
+  display: flex;
+  justify-content: center;
+}
