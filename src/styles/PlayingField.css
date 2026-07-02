@@ -5,13 +5,13 @@
   padding: 1rem;
 }
 
-/* Tablet size and above */
+/* Tablet size and above 4 * 3 */
 @media screen and (min-width: 768px) {
   .playing-field {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(100px, 250px));
-  grid-template-rows: repeat(3, minmax(100px, 250px));
-  gap: 2rem;
-  padding: 1rem;
-}
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 250px));
+    grid-template-rows: repeat(3, minmax(100px, 250px));
+    gap: 2rem;
+    padding: 1rem;
+  }
 }
