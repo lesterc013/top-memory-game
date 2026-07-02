@@ -2,11 +2,26 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-size: 1.6rem;
   background-color: var(--rick-and-morty-lightblue);
   border-radius: 10px;
   padding: 1rem;
   cursor: pointer;
+  align-items: center;
+}
+
+.card > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  font-size: 1.6rem;
   font-family:
     'DeathStar',
     -apple-system,
@@ -23,15 +38,8 @@
   -webkit-text-stroke-color: black;
 }
 
-.card > img {
-  height: 80%;
-  border-radius: 10px;
-}
-
-.card-name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100%;
+@media screen and (min-width: 1024px) {
+  .card-name {
+    font-size: 2rem;
+  }
 }
