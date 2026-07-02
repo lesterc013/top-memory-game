@@ -10,9 +10,31 @@ export default function PlayingField({ checkScoringLogic }) {
 
   // Initialise the 12 cardData objects.
   useEffect(() => {
+    const chosenIds = new Set();
     const cardDataPlaceholder = [];
     const promises = [];
     const controller = new AbortController();
+
+    async function getMaxNumOfIds() {
+      try {
+        let res = await fetch(`${API_ENDPOINT}`, {
+          signal: controller.signal,
+        });
+        res = await res.json();
+        const maxNumOfIds = res.info.count;
+        // For num cards of times, getRandomNumber in that maxNum range.
+        // Add to the set if its not inside, else do it again
+        for (let i = 0; i < NUM_CARDS; i++) {
+          let randId = getRandomNumber(maxNumOfIds);
+          while (chosenIds.has(randId)) {
+            randId = getRandomNumber(maxNumOfIds);
+          }
+          chosenIds.add(randId);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
 
     async function getCardData(charId) {
       try {
@@ -26,16 +48,22 @@ export default function PlayingField({ checkScoringLogic }) {
       }
     }
 
-    // Run all the fetches
-    for (let i = 0; i < NUM_CARDS; i++) {
-      const promise = getCardData(i + 1);
-      promises.push(promise);
+    // Wrapper async function so I can await multiple async functions...
+    async function loadCards() {
+      await getMaxNumOfIds();
+      // Make fetch call for each random ID
+      chosenIds.forEach((id) => {
+        const promise = getCardData(id);
+        promises.push(promise);
+      });
+
+      // Only set state when all fetch results resolve.
+      await Promise.all(promises);
+
+      setCardData(shuffleArray([...cardDataPlaceholder]));
     }
 
-    // Only set state when all fetch results resolve.
-    Promise.all(promises).then(() => {
-      setCardData(shuffleArray([...cardDataPlaceholder]));
-    });
+    loadCards();
 
     // Clean up function using master switch to abort all fetch requests at once.
     return () => {
@@ -65,6 +93,10 @@ export default function PlayingField({ checkScoringLogic }) {
       ))}
     </div>
   );
+}
+
+function getRandomNumber(maxNum) {
+  return Math.floor(Math.random() * maxNum);
 }
 
 function shuffleArray(array) {
