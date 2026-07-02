@@ -38,9 +38,6 @@ body {
   line-height: 1.5;
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
-  /* Makes body fill the viewport. Remove if the page needs to scroll vertically,
-     or if content overflows — 100vh will clip it rather than expand. */
-  height: 100vh;
   /* Standard font stack — override per project if using a custom font */
   font-family:
     'RickAndMorty',
