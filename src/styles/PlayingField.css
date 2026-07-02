@@ -1,6 +1,7 @@
 .playing-field {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-rows: max-content;
   gap: 1rem;
   padding: 1rem;
 }
